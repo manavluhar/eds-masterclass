@@ -11,6 +11,13 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+// Allowed CORS origins
+const ALLOWED_ORIGINS = [
+	'http://localhost:3000',
+	/^https:\/\/[^/]+--eds-masterclass--cloudadoption\.aem\.live$/,
+	/^https:\/\/[^/]+--eds-masterclass--cloudadoption\.aem\.page$/,
+];
+
 export default {
 	async fetch(request, env, ctx) {
 		const url = new URL(request.url);
@@ -124,16 +131,15 @@ async function handleBreeds(request, env) {
 function isAllowedOrigin(origin) {
 	if (!origin) return false;
 
-	// Allow localhost:3000
-	if (origin === 'http://localhost:3000') return true;
-
-	// Allow any branch on .aem.live
-	if (origin.match(/^https:\/\/[^/]+--eds-masterclass--cloudadoption\.aem\.live$/)) return true;
-
-	// Allow any branch on .aem.page
-	if (origin.match(/^https:\/\/[^/]+--eds-masterclass--cloudadoption\.aem\.page$/)) return true;
-
-	return false;
+	return ALLOWED_ORIGINS.some((allowed) => {
+		if (typeof allowed === 'string') {
+			return origin === allowed;
+		}
+		if (allowed instanceof RegExp) {
+			return allowed.test(origin);
+		}
+		return false;
+	});
 }
 
 /**
