@@ -27,6 +27,13 @@ This document contains useful resources for AEM Edge Delivery Services developme
 - https://www.aem.live/community
 - https://www.aem.live/blog
 
+## Integrations
+
+- [Integration Patterns](https://www.aem.live/developer/integrations)
+- [Getting Started with Cloudflare Workers](https://developers.cloudflare.com/workers/get-started/guide/)
+- [The Cat API](https://thecatapi.com/)
+- [The Cat API Documentation](https://developers.thecatapi.com/)
+
 ---
 
 ## Web Performance
