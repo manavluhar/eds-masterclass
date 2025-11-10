@@ -43,6 +43,7 @@ Alternatively:
 - Create a folder called `deno` in DA for the site, and point the site's content to https://content.da.live/{ORG}/deno/
 - Copy the boilerplate content from your original site created with the DA tutorial to this new site. We just need some sample content.
 
+<img width="1196" height="394" alt="image" src="https://github.com/user-attachments/assets/2951b6a8-7a35-4939-b4e2-bc8e75c82c15" />
 
 ## Step 2: Import content
 - Run `aem import` from the repo
@@ -104,8 +105,6 @@ We now want a second site to utilize the same code & block library.
 - Review how themes are loaded in `scripts/aem.js`
 - Change the value of the `--link-color` CSS variable scoped to `body.enterprise`
 - Test your changes on both sites!
-
-<img width="1196" height="394" alt="image" src="https://github.com/user-attachments/assets/2951b6a8-7a35-4939-b4e2-bc8e75c82c15" />
 
 <img width="1339" height="462" alt="image" src="https://github.com/user-attachments/assets/cb051888-0fb1-45f0-9e0b-59263db1ebd1" />
 
