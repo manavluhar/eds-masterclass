@@ -45,7 +45,7 @@ Alternatively:
 - Create a new site
 - Point it to your fork of this `eds-masterclass` repo
 - Create a folder called `deno` in DA for the site, and point the site's content to https://content.da.live/{ORG}/deno/
-- Copy the boilerplate content from [here](https://da.live/#/usman-khalid/eds-masterclass/deno-demo-content) into this site. We just need some sample content. Preview and publish it.
+- Copy the boilerplate content from [here](https://da.live/#/usman-khalid/eds-masterclass-demo-content) into this site. We just need some sample content. Preview and publish it.
 
 _TIP: Use the [Bulk Operations app](https://da.live/apps/bulk) to bulk preview/publish pages & fragments._
 
@@ -75,10 +75,10 @@ _TIP: Use the Import Workbench to import one as a test. Once satisfied with your
 - Create a `default` index for site content by running the following command. It should include all site content excluding blog post pages:
 
 ```sh
-curl -X POST https://admin.hlx.page/config/{org}/sites/{site}/content/query.yaml \
+curl -X PUT https://admin.hlx.page/config/{org}/sites/{site}/content/query.yaml \
   -H 'content-type: text/yaml' \
   -H 'x-auth-token: {your-auth-token}' \
-  --data @resources/index-config.yaml
+  --data-binary @resources/index-config.yaml
 ```
 
 - Then, go to https://labs.aem.live/tools/index-admin/index.html to review your index config.
@@ -94,10 +94,10 @@ curl -X POST https://admin.hlx.page/config/{org}/sites/{site}/content/query.yaml
 If you prefer to use curl, use the following command:
 
 ```sh
-curl -X POST https://admin.hlx.page/config/{org}/sites/{site}/content/sitemap.yaml \
+curl -X PUT https://admin.hlx.page/config/{org}/sites/{site}/content/sitemap.yaml \
   -H 'content-type: text/yaml' \
   -H 'x-auth-token: {your-auth-token}' \
-  --data @resources/sitemap-config.yaml
+  --data-binary @resources/sitemap-config.yaml
 ```
 
 ## Step 5: Create a repoless site
