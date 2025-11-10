@@ -11,7 +11,6 @@
  */
 /* global WebImporter */
 /* eslint-disable no-console, class-methods-use-this */
-
 const handleBlogPosts = (main, metadata) => {
   const isBlogPost = main.querySelector('.blog-header');
 
@@ -20,6 +19,20 @@ const handleBlogPosts = (main, metadata) => {
     if (article) {
       const date = article.querySelector('time');
       metadata.Date = date.innerText;
+      const blogMetadataContainer = date.closest('div');
+      const authors = blogMetadataContainer.querySelector(':scope > ul');
+
+      if (authors) {
+        const authorList = authors.querySelectorAll('li');
+        metadata.Author = [...authorList].map((author) => author.querySelector('a').innerText).join(', ');
+      }
+
+      const tagLinks = blogMetadataContainer.querySelectorAll('a[href*="/blog?tag="]');
+      if (tagLinks.length > 0) {
+        metadata.Tags = [...tagLinks].map((tag) => tag.innerText).join(', ');
+      }
+
+      blogMetadataContainer.remove();
     }
   }
 };
