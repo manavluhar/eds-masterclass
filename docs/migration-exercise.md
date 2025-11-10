@@ -13,6 +13,11 @@ As a pre-requisite to Masterclass, you should already have an org and a site up 
 
 **IMPORTANT: Before going through the following steps, fork this `eds-masterclass` repo.**
 
+## References:
+
+- Admin API Docs: https://www.hlx.live/docs/admin.html#tag/code/oper
+- aem.live docs: https://www.aem.live/docs/
+
 ## Step 1: Create the Deno site in your org
 
 ```sh
@@ -36,6 +41,7 @@ Alternatively:
 - Create a new site
 - Point it to your fork of this `eds-masterclass` repo
 - Create a folder called `deno` in DA for the site, and point the site's content to https://content.da.live/{ORG}/deno/
+- Copy the boilerplate content from your original site created with the DA tutorial to this new site. We just need some sample content.
 
 
 ## Step 2: Import content
@@ -48,14 +54,13 @@ Alternatively:
     - https://deno.com/blog/open-source
     - https://deno.com/blog/v2.5
 
-The blog post metadata should contain fields for `Author` and `Tags` which are currently missing. Update the `handleBlogPosts` function in `import.js` to include these in the metadata table.
+TASK: The blog post metadata should contain fields for `Author` and `Tags` which are currently missing. Update the `handleBlogPosts` function in `import.js` to include these in the metadata table.
 
-_Solution is available in the `migration-02` branch_
+_Solution is available here: https://gist.github.com/usman-khalid/d15cdec210ff88fd9db55e022a3804fb_
 
 _TIP: Use the Import Workbench to import one as a test. Once satisfied with your import updates, import all 5 pages in bulk, then drop them in your DA folder in a /blog folder._
 
 ## Step 3: Create site and blog indices
-- Create some dummy non-blog content on the site, throw some blocks on a couple of pages and publish them
 - Go to https://labs.aem.live/tools/index-admin/index.html
 - Create a `default` index for site content. It should include all site content excluding blog post pages
 - Create a `blog` index for the blog pages that were imported
