@@ -61,12 +61,7 @@ _Solution is available here: https://gist.github.com/usman-khalid/d15cdec210ff88
 _TIP: Use the Import Workbench to import one as a test. Once satisfied with your import updates, import all 5 pages in bulk, then drop them in your DA folder in a /blog folder._
 
 ## Step 3: Create site and blog indices
-- Go to https://labs.aem.live/tools/index-admin/index.html
-- Create a `default` index for site content. It should include all site content excluding blog post pages
-- Create a `blog` index for the blog pages that were imported
-    - Value for `include` should be `/blog/**`
-
-If you prefer curl, use the following command:
+- Create a `default` index for site content by running the following command. It should include all site content excluding blog post pages:
 
 ```sh
 curl -X POST https://admin.hlx.page/config/{org}/sites/{site}/content/query.yaml \
@@ -75,7 +70,9 @@ curl -X POST https://admin.hlx.page/config/{org}/sites/{site}/content/query.yaml
   --data @resources/index-config.yaml
 ```
 
-You can verify the index config in the index admin tool mentioned above to confirm that things are looking good and edit as necessary.
+- Then, go to https://labs.aem.live/tools/index-admin/index.html to review your index config.
+- Add a second index called `blog` using the index admin tool.
+    - Value for `include` should be `/blog/**`  
 
 ## Step 4: Create sitemaps pointing to their indices
 - Go to https://labs.aem.live/tools/sitemap-admin/index.html
@@ -98,9 +95,15 @@ We now want a second site to utilize the same code & block library.
 
 - Create a second "repoless" site, pointing to the same codebase
 - Create a metadata sheet for the new site and apply the `enterprise` theme to all pages.
+    - The key/value pair should be `URL` and `theme`
+    - We can apply it to all paths on the site using `/**` 
 - Review how themes are loaded in `scripts/aem.js`
 - Change the value of the `--link-color` CSS variable scoped to `body.enterprise`
 - Test your changes on both sites!
+
+<img width="1196" height="394" alt="image" src="https://github.com/user-attachments/assets/2951b6a8-7a35-4939-b4e2-bc8e75c82c15" />
+
+<img width="1339" height="462" alt="image" src="https://github.com/user-attachments/assets/cb051888-0fb1-45f0-9e0b-59263db1ebd1" />
 
 You now have two sites with a separatation in styling powered by the same codebase!
 
@@ -135,6 +138,7 @@ curl -X POST https://admin.hlx.page/config/{org}/sites/{site}/headers.json \
 - Create a sheet in the content root called `redirects`
 - Add 2 columns: `source` and `destination`
 - Add a redirect for `/news` to redirect to `/blog`
+- Test the redirect on the site
 
 _Note: These paths should be relative and not the FQDN_
 
