@@ -11,7 +11,11 @@ As a pre-requisite to Masterclass, you should already have an org and a site up 
 - Add a custom header for some path(s)
 - Add a new user to the org
 
-**IMPORTANT: Before going through the following steps, fork this `eds-masterclass` repo.**
+IMPORTANT: Before going through the following steps, fork this `eds-masterclass` repo and configure the AEM Code Sync App:
+- Visit https://github.com/apps/aem-code-sync
+- Hit `Configure`
+- Select `Only Select Repositories` and give your new forked repo access to the code sync app
+.
 
 ## References:
 
@@ -41,7 +45,9 @@ Alternatively:
 - Create a new site
 - Point it to your fork of this `eds-masterclass` repo
 - Create a folder called `deno` in DA for the site, and point the site's content to https://content.da.live/{ORG}/deno/
-- Copy the boilerplate content from your original site created with the DA tutorial to this new site. We just need some sample content.
+- Copy the boilerplate content from [here](https://da.live/#/usman-khalid/eds-masterclass/deno-demo-content) into this site. We just need some sample content. Preview and publish it.
+
+_TIP: Use the [Bulk Operations app](https://da.live/apps/bulk) to bulk preview/publish pages & fragments._
 
 <img width="1196" height="394" alt="image" src="https://github.com/user-attachments/assets/2951b6a8-7a35-4939-b4e2-bc8e75c82c15" />
 
